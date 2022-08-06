@@ -49,17 +49,17 @@ During data cleaning, feature engineering, and Exploratory Data Analysis (EDA), 
 
 With reference to the following count and bar plots, it is reasonably expected for properties having the best overall materials and finishes (i.e. highest Overall Quality of 10) to command the highest sale price, ceteris paribas:
 
-![Overall Quality Count & Box Plots](media/Overall Quality Count & Box Plots.png)
+![Overall Quality Count & Box Plots](media/Overall_Quality_Count_&_Box_Plots.png)
 
 In contrast, **no** properties was given the highest Overall Condition rating of **10**, properties having Overall Condition rating of **5** commanded highest sale price, and properties having Overall Condition rating of **6** to **9** commanded increasingly lower sale prices:
 
-![Overall Condition Count & Box Plots](media/Overall Condition Count & Box Plots.png)
+![Overall Condition Count & Box Plots](media/Overall_Condition_Count_&_Box_Plots.png)
 
 A possible explanation is that it is easier for one to assess more objective measures such as materials and finishes of properties. Comparatively, it is much harder for one to assess more subjective measures such as the overall condition of properties.
 
 ### Correlation Analysis
 
-![Heatmap Stronger Than ±0.7](media/Heatmap Stronger Than ±0.7.png)
+![Heatmap Stronger Than ±0.7](media/Heatmap_Stronger_Than_±0.7.png)
 
 Referencing the above heatmap, given that several features such as **`'overall_qual'`** (0.8033), **`'exter_qual'`** (0.7143), and **`'total_pty_sf'`** (0.8541) have relative high correlation of **at least 0.71** with **`'saleprice'`**, we could potentially derive at a model that could predict housing prices at Ames, Iowa.
 
@@ -82,7 +82,7 @@ Upon calculating the Lasso Regression Model's optimal alpha, it was used in fitt
 
 The plot of Predicted Sale Price vs Actual Sale Price using the Lasso Regression Model is shown below:
 
-![Predicted vs Actual Sale Prices (Lasso)](media/Predicted vs Actual Sale Prices (Lasso).png)
+![Predicted vs Actual Sale Prices (Lasso)](media/Predicted_vs_Actual_Sale_Prices_(Lasso).png)
 
 ### Ridge Regression Model
 
@@ -90,7 +90,7 @@ Similarly, upon calculating the Ridge Regression Model's optimal alpha, it was u
 
 The plot of Predicted Sale Price vs Actual Sale Price using the Ridge Regression Model is shown below:
 
-![Predicted vs Actual Sale Prices (Ridge)](media/Predicted vs Actual Sale Prices (Ridge).png)
+![Predicted vs Actual Sale Prices (Ridge)](media/Predicted_vs_Actual_Sale_Prices_(Ridge).png)
 
 ### Summary of Regression Results
 
@@ -110,7 +110,7 @@ Since the Lasso Regression model has both a higher validation R² and a lower va
 
 The plot of Lasso Residuals vs Predicted Sale Price using the Lasso Regression Model is as follows:
 
-![Lasso Residuals vs Predicted Sale Prices](media/Lasso Residuals vs Predicted Sale Prices.png)
+![Lasso Residuals vs Predicted Sale Prices](media/Lasso_Residuals_vs_Predicted_Sale_Prices.png)
 
 - A well-behaved residuals vs. predictor will bounce randomly and form a roughly horizontal band around the residual = 0 line, and no data points will stand out from the basic random pattern of the other residuals, i.e. **homoscedastic** or **homogeneity of variance**.
 - The points are generally well-behaved within a ± USD 50,000 horizontal band for Predicted Sale Price up to approximately USD 300,000 before starting to form a funnel-like shape with the funnel's broader opening on the right as Predicted Sale Price increases. The occurrence of this funnel shape indicates [**heteroskedasticity** (or **heteroscedasticity**)](https://en.wikipedia.org/wiki/Homoscedasticity_and_heteroscedasticity), i.e. variance of Lasso Residuals increase as Predicted Sale Price increases.  
@@ -125,7 +125,7 @@ Upon retraining the Lasso Regression Model on the Combined Train & Validation da
 
 The top 40 Lasso variables having the greatest impact on `'saleprice'` [Sale Price] are as follows:
 
-![Top 40 Lasso Regression Coefficients](media/Top 40 Lasso Regression Coefficients.png)
+![Top 40 Lasso Regression Coefficients](media/Top_40_Lasso_Regression_Coefficients.png)
 
 - More specifically, the top 5 Lasso variables having the greatest impact on `'saleprice'` [Sale Price] and their corresponding coefficients are as follows:
   - `'total_pty_sf'` [Total Property Area in Square Feet]: **31107.75**
@@ -141,7 +141,7 @@ The top 40 Lasso variables having the greatest impact on `'saleprice'` [Sale Pri
 
 After repeating similar data cleaning steps on the Test dataset, the predicted sale prices are submitted to Kaggle and the score is as follows: 
 
-![Kaggle Submission 02Aug2022 1746HRS](media/Kaggle Submission 02Aug2022 1746HRS.png)
+![Kaggle Submission 02Aug2022 1746HRS](media/Kaggle_Submission_02Aug2022_1746HRS.png)
 
 ---
 
